@@ -130,3 +130,7 @@ install(
   LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
   ARCHIVE DESTINATION "${INSTALL_LIB_DIR}"
   RUNTIME DESTINATION "${INSTALL_BIN_DIR}")
+
+target_link_libraries(duckdb ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY})
+# for debug
+target_link_libraries(duckdb "/opt/homebrew/Cellar/openssl@3/3.3.1/lib/libcrypto.dylib" "/opt/homebrew/Cellar/openssl@3/3.3.1/lib/libssl.dylib")

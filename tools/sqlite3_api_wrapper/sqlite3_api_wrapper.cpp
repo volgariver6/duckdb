@@ -33,6 +33,15 @@
 using namespace duckdb;
 using namespace std;
 
+int sqlite3_gen_license(const char *lic_param) {
+    if (!lic_param) {
+        return SQLITE_ERROR;
+    }
+    auto lic = License(lic_param);
+    lic.Generate();
+    return SQLITE_OK;
+}
+
 extern "C" {
 char *sqlite3_print_duckbox(sqlite3_stmt *pStmt, size_t max_rows, size_t max_width, char *null_value, int columnar);
 }

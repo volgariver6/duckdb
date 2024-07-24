@@ -20130,6 +20130,17 @@ int SQLITE_CDECL wmain(int argc, wchar_t **wargv){
       readStdin = 0;
       break;
 #endif
+    } else if (strcmp(z, "-lic") == 0) {
+      if (argc == i+1) {
+        utf8_printf(stderr, "%s: Error: missing argument to %s\n", argv[0], argv[argc-1]);
+        return 1;
+    }
+    rc = sqlite3_gen_license(argv[i+1]);
+    if (rc != 0) {
+      utf8_printf(stderr, "%s: Error: failed to generate license\n", argv[0]);
+      return 1;
+    }
+    return 0;
     }else{
       utf8_printf(stderr,"%s: Error: unknown option: %s\n", Argv0, z);
       raw_printf(stderr,"Use -help for a list of options.\n");

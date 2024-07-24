@@ -351,4 +351,8 @@ ParameterNotResolvedException::ParameterNotResolvedException()
     : Exception(ExceptionType::PARAMETER_NOT_RESOLVED, "Parameter types could not be resolved") {
 }
 
+LicenseException::LicenseException()
+	: Exception(ExceptionType::LICENSE, "License not valid") {
+}
+
 } // namespace duckdb

@@ -86,7 +86,8 @@ enum class ExceptionType : uint8_t {
 	HTTP = 38,
 	MISSING_EXTENSION = 39, // Thrown when an extension is used but not loaded
 	AUTOLOAD = 40,          // Thrown when an extension is used but not loaded
-	SEQUENCE = 41
+	SEQUENCE = 41,
+	LICENSE = 42
 };
 
 class Exception : public std::runtime_error {
@@ -359,6 +360,11 @@ public:
 class ParameterNotResolvedException : public Exception {
 public:
 	DUCKDB_API explicit ParameterNotResolvedException();
+};
+
+class LicenseException : public Exception {
+public:
+	DUCKDB_API explicit LicenseException();
 };
 
 } // namespace duckdb

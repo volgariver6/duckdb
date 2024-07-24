@@ -171,3 +171,4 @@
 #define sqlite3_vsnprintf              duckdb_shell_sqlite3_vsnprintf
 #define sqlite3_vtab_collation         duckdb_shell_sqlite3_vtab_collation
 #define sqlite3_vtab_config            duckdb_shell_sqlite3_vtab_config
+#define sqlite3_gen_license            duckdb_shell_sqlite3_gen_license

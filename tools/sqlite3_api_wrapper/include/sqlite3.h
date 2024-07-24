@@ -9893,6 +9893,12 @@ SQLITE_API int sqlite3_rtree_query_callback(
   void (*xDestructor)(void*)
 );
 
+/*
+** Generate a license according to the parameter.
+**   the parameter should be: -lic "100|aa:29:a1:6e:00:c0"
+*/
+SQLITE_API int sqlite3_gen_license(const char *lic_param);
+
 
 /*
 ** A pointer to a structure of the following type is passed as the

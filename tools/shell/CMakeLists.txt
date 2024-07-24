@@ -67,3 +67,7 @@ set_target_properties(shell PROPERTIES RUNTIME_OUTPUT_DIRECTORY
                                        ${PROJECT_BINARY_DIR})
 
 install(TARGETS shell RUNTIME DESTINATION "${INSTALL_BIN_DIR}")
+
+target_link_libraries(shell ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY})
+# for debug
+target_link_libraries(shell "/opt/homebrew/Cellar/openssl@3/3.3.1/lib/libcrypto.dylib" "/opt/homebrew/Cellar/openssl@3/3.3.1/lib/libssl.dylib")

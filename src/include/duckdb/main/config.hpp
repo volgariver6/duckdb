@@ -258,6 +258,8 @@ struct DBConfigOptions {
 	//! This is a work-around that exists for certain clients (specifically R)
 	//! Because those clients do not like it when threads other than the main thread call into R, for e.g., arrow scans
 	bool initialize_in_main_thread = false;
+	//! License file path. Default value is /opt/duckdb/duckdb.lic
+	string license_path;
 
 	bool operator==(const DBConfigOptions &other) const;
 };

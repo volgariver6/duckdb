@@ -268,6 +268,13 @@ void DatabaseInstance::Initialize(const char *database_path, DBConfig *user_conf
 }
 
 DuckDB::DuckDB(const char *path, DBConfig *new_config) : instance(make_shared_ptr<DatabaseInstance>()) {
+	if (new_config->options.license_path.empty()) {
+		new_config->options.license_path = "/opt/duckdb/duckdb.lic";
+	}
+	auto valid = License::Validate(new_config->options.license_path);
+	if (!valid) {
+		throw LicenseException();
+	}
 	instance->Initialize(path, new_config);
 	if (instance->config.options.load_extensions) {
 		ExtensionHelper::LoadAllExtensions(*this);

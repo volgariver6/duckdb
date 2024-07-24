@@ -34,6 +34,7 @@ add_library_unity(
   error_manager.cpp
   extension.cpp
   extension_install_info.cpp
+  license.cpp
   materialized_query_result.cpp
   pending_query_result.cpp
   prepared_statement.cpp
@@ -44,6 +45,11 @@ add_library_unity(
   query_result.cpp
   stream_query_result.cpp
   valid_checker.cpp)
+
+include_directories(${OPENSSL_INCLUDE_DIR})
+# for debug
+include_directories("/opt/homebrew/Cellar/openssl@3/3.3.1/include")
+
 set(ALL_OBJECT_FILES
     ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main>
     PARENT_SCOPE)
